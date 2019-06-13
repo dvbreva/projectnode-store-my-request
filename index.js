@@ -8,7 +8,7 @@ const database = new Database;
 //database.create('test',{'id': uuid.v4(),'name': 'first','price':'$4000'});
 
 // SELECT - add the name of your "table" you want to select 
-// database.read('test');
+// database.select('test');
 
 // INSERT - use insert to add more data 
 // database.insert('test',{'id': uuid.v4(),'name': 'trying id one more time','price':'$250'});
