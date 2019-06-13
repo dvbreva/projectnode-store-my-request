@@ -1,14 +1,12 @@
 [
    {
-      "name": "innoson",
+      "id": "794620f7-1a34-480f-aa65-8b7f7871dece",
+      "name": "first",
       "price": "$4000"
    },
    {
-      "name": "another one",
-      "price": "$200"
-   },
-   {
-      "name": "edited name",
-      "price": "edited price"
+      "id": "45b700ff-495c-41ed-82a7-487d50d77c55",
+      "name": "editing name",
+      "price": "$500"
    }
 ]
