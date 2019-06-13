@@ -7,7 +7,6 @@ const baseDir = ('./database');
 
 class Database {
 
-    //Write data to a file
     create(file, data) {
         fs.open(`${baseDir}/${file}.json`, 'wx', (err, identifier) => {
             if (!err && identifier) {
@@ -38,18 +37,15 @@ class Database {
 
     insert(file, data) {
 
-        //readFile returns promises
         readFile(`${baseDir}/${file}.json`, 'utf8')
             .then(newStream => {
-                //Change the string to a JS object
+                // Change the string to a JS object, push the update and return data as string
                 let newData = JSON.parse(newStream);
-                // Push our update to the array
                 newData.push(data);
-                // return our data as a string 
                 return JSON.stringify(newData, null, 3);
             })
             .then(finalData => {
-                //replace the content in the file, with the updated data.
+                // then replace the content in the file with the updated data
                 fs.truncate(`${baseDir}/${file}.json`, (err) => {
                     if (!err) {
                         fs.writeFile(`${baseDir}/${file}.json`, finalData, (err) => {
@@ -71,7 +67,7 @@ class Database {
     deleteSpecificEntity(file, data) {
         readFile(`${baseDir}/${file}.json`, 'utf8')
         .then(newStream => {
-            //Change the string to a JS object
+           
             var newData = JSON.parse(newStream);
 
             for (var i = 0; i <= newData.length - 1; i++) {
@@ -81,13 +77,9 @@ class Database {
                     break;
                 }
             }
-           
-            // return our data as a string 
             return JSON.stringify(newData, null, 3);
-
         })
         .then(finalData => {
-            //replace the content in the file, with the updated data.
             fs.truncate(`${baseDir}/${file}.json`, (err) => {
                 if (!err) {
                     fs.writeFile(`${baseDir}/${file}.json`, finalData, (err) => {
@@ -102,7 +94,6 @@ class Database {
     updateSpecificEntity(file, data, data2) {
         readFile(`${baseDir}/${file}.json`, 'utf8')
         .then(newStream => {
-            //Change the string to a JS object
             var newData = JSON.parse(newStream);
 
             for (var i = 0; i <= newData.length - 1; i++) {
@@ -114,13 +105,9 @@ class Database {
                     break;
                 }
             }
-           
-            // return our data as a string 
             return JSON.stringify(newData, null, 3);
-
         })
         .then(finalData => {
-            //replace the content in the file, with the updated data.
             fs.truncate(`${baseDir}/${file}.json`, (err) => {
                 if (!err) {
                     fs.writeFile(`${baseDir}/${file}.json`, finalData, (err) => {
