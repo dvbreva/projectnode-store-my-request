@@ -1,0 +1,14 @@
+[
+   {
+      "name": "innoson",
+      "price": "$4000"
+   },
+   {
+      "name": "another one",
+      "price": "$200"
+   },
+   {
+      "name": "edited name",
+      "price": "edited price"
+   }
+]
